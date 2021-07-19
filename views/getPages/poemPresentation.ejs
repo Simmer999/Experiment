@@ -1,0 +1,29 @@
+<section>
+    <div class='spacer'>
+    </div>  
+    <h1 class='purpleBox'>presentationPage</h1> 
+    <%- include('../partials/sidenav'); %>
+    <div class="purpleBox">
+        <ul class="Poems">
+  
+          <H2>All Poems</H2>
+        <% if (Poems.length > 0) { %>
+            <% Poems.forEach(poem => { %>
+                <a href='/Poems/<%= poem._id %>'>
+                <h3 id='title' ><%= poem.title %></h3>
+                </a>
+                <p id='body'><%= poem.body %></p>
+               
+                
+                <% }) %>
+            <% } else { %>
+                <p>There are no poems to display.</p>
+            <% } %>        
+
+        </ul>
+    </div>
+    <div class="purpleBox">
+        <a href="/dashboard">Home</a>__
+        <a href="/users/logout">Logout</a>
+    </div> 
+</section>

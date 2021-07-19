@@ -1,0 +1,29 @@
+<section>   
+    <div class='spacer'>
+    </div> 
+    <h1 class='purpleBox'>getEssaysStuff, a.k.a. Essays.ejs</h1> 
+    <%- include('../partials/sidenav'); %>
+    
+    
+    
+    <div class="purpleBox">
+        <ul class="Essays">
+        <% for(var i = 0; i < entries.length; i++) {%>
+            <li class="Essay">
+                <a href="/essayPresentation">
+                    <span id='title' ><%= entries[i].title%></span>
+                </a>
+            <br>
+            : <span id='author' ><%= entries[i].author%></span>
+            <br>
+            : <span id='body' ><%= entries[i].body%></span>
+            </li>
+            <br>
+        <% } %>
+        </ul>
+    </div>
+    <div class="purpleBox">
+        <a href="dashboard">Home</a>__
+        <a href="/users/logout">Logout</a>
+    </div>    
+</section>

@@ -1,0 +1,31 @@
+
+        <H2>All Books</H2>
+        <% if (Books.length > 0) { %>
+            <% Books.forEach(book => { %>
+                <h3><%= book.title %></h3>
+                <p><% book.body %></p>
+                <% }) %>
+            <% } else { %>
+                <p>There are no books to display.</p>
+            <% } %>
+
+
+
+
+router.get('/presentationPage/:id', (req, res) => {
+    // const id = req.params.id
+    console.log(req.params)
+    // const Books = db.collection('Books')
+    console.log(req.params)
+    // books.find(req.params.id)
+//    .findById(    )
+    
+    .then(results => {
+    res.render('getpages/presentationPage'
+    , { book: results, title: 'Book Details' }
+    ) 
+    })
+    .catch(err => {
+    console.log(err)   
+})
+})

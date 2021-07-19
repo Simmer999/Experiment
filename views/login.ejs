@@ -1,0 +1,24 @@
+<section>
+  <%- include ('./partials/messages') %>
+  <div class='spacer'>
+  </div>
+  <h3 class='purpleBox'>Login</h3>
+  <form class='formContainer' action="users/login" method='POST'>
+      <div>
+          <label for="email">Email</label>
+          <input type="email" name='email' placeholder='Enter Email'/>
+      </div>
+      <br>
+      <div>
+          <label for="password">Password</label>
+          <input type="password" name='password' placeholder='Enter Password'>
+      </div>
+      <br>
+      <button type='submit' class='xx'>Login</button>
+      <br>
+      <p>No account yet? <a class='links' href="/register"> Register</a></p>
+      <br>
+      <p >Home Page <a class='links' href="/">Home</a></p>
+  </form>
+</section>
+

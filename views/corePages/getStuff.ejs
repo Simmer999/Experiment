@@ -1,0 +1,37 @@
+<section>
+    <br>
+    <h1 class='purpleBox'>Get Stuff Central Directory</h1> 
+    <%- include('../partials/sidenav'); %>
+     <h3 class='purpleBox'>Get Stuff from Database.
+         <br>
+         This page has many deficiencies:
+         <br>
+         -The nav bar links do not work.
+         <br>
+         -There is nothing in the Essays database or in 
+         the Poems database.
+         <br>
+         -Each of 'new' and 'update' links in the nav bar do not point at 
+         their respective endpoints. They point at the 'get' endpoints.
+         <br>
+         <br>
+         <br>
+     </h3>
+    
+        <form class="purpleBox" action='/BookList' method="GET">  <!--This goes to router.get('/getBooksStuff' in index.js. Then it loads Books.ejs.-->
+            <label for=""> Get BookList  </label>
+            <input class='input' type="submit" placeholder='Books'>
+        </form>
+        <form class="purpleBox" action='/EssayList' method="GET">  <!--This goes to router.get('/getEssaysStuff' in index.js. Then it loads Essays.ejs.-->
+            <label for=""> Get EssayList</label>
+            <input class='input' type="submit">
+        </form>
+        <form class="purpleBox" action='PoemList' method="GET">  <!--This goes to router.get('/getPoemsStuff' in index.js. Then it loads Poems.ejs.-->
+            <label for=""> Get Poems</label>
+            <input class='input' type="submit">
+        </form>
+        <form class="purpleBox" action='getUsers' method="GET">
+            <label for=""> Get Users</label>
+            <input class='input' type="submit">
+        </form>
+</section>

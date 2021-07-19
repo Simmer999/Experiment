@@ -1,0 +1,24 @@
+<section>
+    <div class='spacer'>
+    </div> 
+    <h1></h1> 
+<%- include('../partials/sidenav'); %>
+<div class="purpleBox">
+    <ul class="Books">
+        <% Books.forEach(post => { %>
+            <tr>
+                <td><%= Books.title %></td>
+                <td><%= Books.body %></td>
+            </tr>
+        <% }) %>
+
+
+    </ul>
+</div>
+<div class="purpleBox">
+    <a href="dashboard">Home</a>
+    <br>
+    <br>
+    <a href="/users/logout">Logout</a>
+</div> 
+</section>
