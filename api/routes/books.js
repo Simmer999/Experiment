@@ -12,6 +12,7 @@ router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
 const Book = require('../models/books');
+const { findById } = require('../models/books');
 
 const Books = db.collection('Books')    //These are the names of the collections in the database.
 
@@ -73,13 +74,14 @@ router.post('/newbook', (req, res ) => {
 })
 //==================================================================== POST
 router.get('/Books/:id', (req, res) => {
+    
     const id = req.params.id
     console.log(id)
-    console.log(req.params.id)
-    Book.findById( id)
+    // console.log(req.params.id)
+    db.collection('Books').find(id).toArray()
     .then(result => {
-    res.render('details', { Book: result, title: 'Book Details' }) 
-    console.log(result)
+    res.render('details/bookDetails', { Book: result, title: 'Book Details' }) 
+    // console.log(result)
     })
     .catch(err => {
     console.log(err)   
