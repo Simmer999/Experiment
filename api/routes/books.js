@@ -31,18 +31,9 @@ router.get('/newBooks', (req, res) => {
     .catch(error => console.error(error))
 })
 
-router.get('/bookPresentation', (req, res) => {
-    db.collection('Books')
-    .find()
-    .toArray()
-    .then(results => {
-        //In order to print the contents of the database to the console:
-        console.log(results)
-        res.render('getPages/bookPresentation', { Books: results })  
-    })
-    .catch(error => console.error(error))
-})
 
+
+//==================================================== Code for BookList
 router.get('/BookList', (req, res) => { 
     Books.find().toArray()
         .then(results =>{
@@ -50,11 +41,37 @@ router.get('/BookList', (req, res) => {
         })
         .catch(error => console.error(error))
     })
-//==================================================================== GETs
-
-
-
-//==================================================================== POST
+//==================================================== Code for BookList
+//==================================================== Code for bookPresentaion
+router.get('/bookPresentation', (req, res) => {
+    db.collection('Books')
+    .find()
+    .toArray()
+    .then(results => {
+        //In order to print the contents of the database to the console:
+        // console.log(results)
+        res.render('getPages/bookPresentation', { Books: results })  
+    })
+    .catch(error => console.error(error))
+})
+//==================================================== Code for bookPresentaion
+//==================================================== Code for bookDetails
+router.get('/Books/:id', (req, res) => {
+    const id = req.params.id  
+    console.log(id)
+    // db.collection('Books').find( { } ).toArray()
+    Book.findById(id)
+    // console.log(Book)
+    .then(result => { 
+    res.render('details/bookDetails', { Book: result , title: 'Book Details' }) 
+    // console.log(result)
+    })
+    .catch(err => {
+    console.log(err)   
+})
+})
+//==================================================== Code for bookDetails
+//==================================================== POST for newBook
 router.post('/newbook', (req, res ) => {
     const title = req.body.title;
     const author = req.body.author;
@@ -72,25 +89,7 @@ router.post('/newbook', (req, res ) => {
         // return res.redirect('corePages/directory') 
     });
 })
-//==================================================================== POST
-router.get('/Books/:id', (req, res) => {
-    
-    const id = req.params.id
-    console.log(id)
-    // console.log(req.params.id)
-    db.collection('Books').find(id).toArray()
-    .then(result => {
-    res.render('details/bookDetails', { Book: result, title: 'Book Details' }) 
-    // console.log(result)
-    })
-    .catch(err => {
-    console.log(err)   
-})
-})
-//========================================================#4
-// router.get('/Books/60eba42c0535ed265cd97560', (req, res) =>{
-//     res.render('Books/60eba42c0535ed265cd97560')
-// })
+//==================================================== POST for newBook
 
 
 module.exports = router;

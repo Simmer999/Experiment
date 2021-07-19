@@ -18,5 +18,7 @@ const bookSchema = mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('Book', bookSchema, 'Book');  
+const Book = mongoose.model('Book', bookSchema, 'Book');
+
+module.exports = Book
 // This goes to routes/books.js. (const Book = require('../models/books');)
