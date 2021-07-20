@@ -5,18 +5,57 @@ const bodyParser = require('body-parser');
 
 const mongoose = require('mongoose')
 // .set('debug', true)
-const db = mongoose.connection;
 
+const db = mongoose.connection;
+db.on('error', console.log.bind(console, 'connection error'))
+db.once('open', (callback) => {
+    console.log('Connected to MongoDB #3.')
+})
 
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
 const Book = require('../models/books');
+const { response } = require('express');
 const { findById } = require('../models/books');
 
-const Books = db.collection('Books')    //These are the names of the collections in the database.
 
+const Books = db.collection('Poems')    //These are the names of the collections in the database.
 
+//================================================ Sandbox
+router.get('/add-book', (req, res) => {
+    const book = new Book({
+        title: 'new bb book',
+        author: 'poiu',
+        body: 'qeroiuqwerpoi'
+    })
+    book.save()
+        .then((result) => {
+            res.send(result)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+})
+router.get('/all-Books', (req, res) => {
+    Book.find()
+    .then((result) => {
+        res.send(result)
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+})
+router.get('/single-book', (req, res) =>{
+    Book.findById('60ecf8a3f0955b10582b0305')
+    .then((result) => {
+        res.send(result)
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+})
+//================================================ Sandbox
 
 //==================================================================== GETs 
 router.get('/books', (req, res) => {
@@ -57,14 +96,17 @@ router.get('/bookPresentation', (req, res) => {
 //==================================================== Code for bookPresentaion
 //==================================================== Code for bookDetails
 router.get('/Books/:id', (req, res) => {
-    const id = req.params.id  
+    const id = req.params.id 
+    // JSON.stringify(id)
+    console.log(req.params)
     console.log(id)
     // db.collection('Books').find( { } ).toArray()
     Book.findById(id)
-    // console.log(Book)
+    
     .then(result => { 
-    res.render('details/bookDetails', { Book: result , title: 'Book Details' }) 
-    // console.log(result)
+    console.log(Book)    
+    res.render('details/bookDetails', { Book: result }) 
+    console.log(result)
     })
     .catch(err => {
     console.log(err)   
