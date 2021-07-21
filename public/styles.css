@@ -115,3 +115,6 @@ input[type=text] {
     display: flex;
     justify-content: space-evenly;
 }
+.details_Div {
+    color: #666666;
+}

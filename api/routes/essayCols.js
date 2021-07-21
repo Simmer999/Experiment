@@ -8,12 +8,50 @@ const mongoose = require('mongoose')
 const db = mongoose.connection;
 
 
+
+
+
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
 
 const Essay = require('../models/essays');
 
 const Essays = db.collection('Essays')  //These are the names of the collections in the database.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

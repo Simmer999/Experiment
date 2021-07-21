@@ -1,3 +1,40 @@
+The folowing is the original stuff thatI had in bookPresentation.
+       <ul class="Books">
+          <H2>All Books</H2>
+        <% if (Books.length > 0) { %>
+            <% Books.forEach(book => { %>
+                <a href='/Books/<%= book._id %>'> 
+                   
+                <h3 id='title' ><%= book.title %></h3>
+                </a>
+                <p id='body'><%= book.body %></p>
+                
+                
+                <% }) %>
+            <% } else { %>
+                <p>There are no books to display.</p>
+            <% } %>        
+
+        </ul>
+
+The folowing is the new that I had in bookPresentation temporarily.
+     <% if (books.length > 0) { %>
+            <% books.forEach(book => %>
+            <a href="/books/<%= blog._id %>">
+            <h3> <%= boook.title %> </h3>
+            <p> <% book.body %> </p>        
+            </a>
+        <% }) %>
+        <% else { %> 
+        <p>No books to display.</p>
+        <% } %>
+
+
+
+
+
+
+
 
         <H2>All Books</H2>
         <% if (Books.length > 0) { %>

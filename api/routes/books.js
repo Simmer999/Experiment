@@ -5,7 +5,6 @@ const bodyParser = require('body-parser');
 
 const mongoose = require('mongoose')
 // .set('debug', true)
-
 const db = mongoose.connection;
 db.on('error', console.log.bind(console, 'connection error'))
 db.once('open', (callback) => {
@@ -16,11 +15,10 @@ router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
 const Book = require('../models/books');
-const { response } = require('express');
-const { findById } = require('../models/books');
+
+const Books = db.collection('Books')    //These are the names of the collections in the database.
 
 
-const Books = db.collection('Poems')    //These are the names of the collections in the database.
 
 //================================================ Sandbox
 router.get('/add-book', (req, res) => {
@@ -62,7 +60,7 @@ router.get('/books', (req, res) => {
     res.render('newPages/newBook')
 })
 
-router.get('/newBooks', (req, res) => {
+router.get('/newBook', (req, res) => {
     Books.find().toArray()
     .then(results =>{
         res.render('newPages/newBook', { entries : results})
@@ -75,7 +73,7 @@ router.get('/newBooks', (req, res) => {
 //==================================================== Code for BookList
 router.get('/BookList', (req, res) => { 
     Books.find().toArray()
-        .then(results =>{
+        .then(results => {
             res.render('getPages/BookList', { entries : results})
         })
         .catch(error => console.error(error))
@@ -97,14 +95,10 @@ router.get('/bookPresentation', (req, res) => {
 //==================================================== Code for bookDetails
 router.get('/Books/:id', (req, res) => {
     const id = req.params.id 
-    // JSON.stringify(id)
-    console.log(req.params)
     console.log(id)
     // db.collection('Books').find( { } ).toArray()
     Book.findById(id)
-    
-    .then(result => { 
-    console.log(Book)    
+    .then(result => {   
     res.render('details/bookDetails', { Book: result }) 
     console.log(result)
     })
@@ -114,24 +108,33 @@ router.get('/Books/:id', (req, res) => {
 })
 //==================================================== Code for bookDetails
 //==================================================== POST for newBook
-router.post('/newbook', (req, res ) => {
-    const title = req.body.title;
-    const author = req.body.author;
-    const body = req.body.body;
+// router.post('/newbook', (req, res ) => {
+//     const title = req.body.title;
+//     const author = req.body.author;
+//     const body = req.body.body;
   
-    const data = {
-        "title": title,
-        "author": author,
-        "body": body
-    }
-    db.collection('Books').insertOne(data,function(err, collection){
-        if (err) throw err;
-        console.log("Record inserted Successfully");
-        return res.render('corePages/directory');    
-        // return res.redirect('corePages/directory') 
-    });
-})
+//     const data = {
+//         "title": title,
+//         "author": author,
+//         "body": body
+//     }
+//     db.collection('Books').insertOne(data,function(err, collection){
+//         if (err) throw err;
+//         console.log("Record inserted Successfully");
+//         return res.render('corePages/directory');    
+//         // return res.redirect('corePages/directory') 
+//     });
+// })
 //==================================================== POST for newBook
-
+router.post('/newbook', (req, res) => {
+    const book = new Book(req.body)
+    book.save()
+    .then((result) => {
+        res.render('corePages/directory')
+    })
+    .catch(err => {
+        console.log(err)   
+    })
+})
 
 module.exports = router;
