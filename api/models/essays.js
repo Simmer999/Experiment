@@ -1,13 +1,14 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema
 
-const essaySchema = mongoose.Schema({
-    // _id: mongoose.Schema.Types.ObjectId,
-    _id: { type: String},
 
-    Collection_title: {
-        type: String,
-        required: true
-    },
+
+
+
+const EssaySchema =new Schema({
+    // // _id: mongoose.Schema.Types.ObjectId,
+    // _id: { type: String},
+
     title: {
         type: String,
         required: true
@@ -19,7 +20,18 @@ const essaySchema = mongoose.Schema({
     body: {
         type: String,
         required: true
+    },
+        Collection_title: {
+        type: String,
+        required: true
     }
-})
+}, { timestamps: true})
 
-module.exports = mongoose.model('Essay', essaySchema, 'Essay');
+const Essay = mongoose.model('Essay', EssaySchema, 'Essays');
+
+module.exports = Essay
+
+
+
+
+

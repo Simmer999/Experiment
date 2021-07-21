@@ -19,42 +19,6 @@ const Book = require('../models/books');
 const Books = db.collection('Books')    //These are the names of the collections in the database.
 
 
-
-//================================================ Sandbox
-router.get('/add-book', (req, res) => {
-    const book = new Book({
-        title: 'new bb book',
-        author: 'poiu',
-        body: 'qeroiuqwerpoi'
-    })
-    book.save()
-        .then((result) => {
-            res.send(result)
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-})
-router.get('/all-Books', (req, res) => {
-    Book.find()
-    .then((result) => {
-        res.send(result)
-    })
-    .catch((err) => {
-        console.log(err)
-    })
-})
-router.get('/single-book', (req, res) =>{
-    Book.findById('60ecf8a3f0955b10582b0305')
-    .then((result) => {
-        res.send(result)
-    })
-    .catch((err) => {
-        console.log(err)
-    })
-})
-//================================================ Sandbox
-
 //==================================================================== GETs 
 router.get('/books', (req, res) => {
     res.render('newPages/newBook')
@@ -67,9 +31,7 @@ router.get('/newBook', (req, res) => {
     })
     .catch(error => console.error(error))
 })
-
-
-
+//==================================================================== GETs
 //==================================================== Code for BookList
 router.get('/BookList', (req, res) => { 
     Books.find().toArray()
@@ -107,6 +69,37 @@ router.get('/Books/:id', (req, res) => {
 })
 })
 //==================================================== Code for bookDetails
+
+
+//==================================================== POST for newBook
+router.post('/newbook', (req, res) => {
+    const book = new Book(req.body)
+    book.save()
+    .then((result) => {
+        res.render('corePages/directory')
+    })
+    .catch(err => {
+        console.log(err)   
+    })
+})
+//==================================================== POST for newBook
+
+
+module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //==================================================== POST for newBook
 // router.post('/newbook', (req, res ) => {
 //     const title = req.body.title;
@@ -126,15 +119,4 @@ router.get('/Books/:id', (req, res) => {
 //     });
 // })
 //==================================================== POST for newBook
-router.post('/newbook', (req, res) => {
-    const book = new Book(req.body)
-    book.save()
-    .then((result) => {
-        res.render('corePages/directory')
-    })
-    .catch(err => {
-        console.log(err)   
-    })
-})
 
-module.exports = router;
