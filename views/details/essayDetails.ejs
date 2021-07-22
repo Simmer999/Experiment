@@ -1,18 +1,21 @@
 <section>
+    <%- include('../partials/navbar'); %>
+    <div class='spacer'></div> 
 
-    <div class='spacer'>
-    </div> 
-    <div class='details_Div'>
-    <div style="height: 500px;">
-    <div>
-    <h3>Essay title = <%= Essay.title %></h3>
-    </div> 
-    <div>
-        <p>Essay Collection : <%= Essay.Collection_title %></p>
-    </div>
-    <div>
-        <p>Essay body : <%= Essay.body %></p>
-    </div>
+
+    <div class='purpleBox'>
+        <div style="height: 500px;">
+            <div>
+                <a href=""><h3><%= Essay.title %></h3></a>
+                    <h4><%= Essay.author %></h4>
+            </div> 
+            <div>
+                <p><%= Essay.Collection_title %></p>
+            </div>
+            <br>
+            <div>
+            <p><%= Essay.body %></p>
+        </div>
     </div>
     </div>
 

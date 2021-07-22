@@ -11,15 +11,15 @@ body::-webkit-scrollbar {
     display: none;
   } 
 section {
-    height: auto;
-    padding-left: 20%;
+    height: 100vh;
+    /* padding-left: 20%; */
     padding-bottom: 30px;
 }
 section::-webkit-scrollbar {
     display: none;
-  } 
+} 
 .purpleBox {
-    /* margin-left: 100px; */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: auto;
     margin-top: 0px;
     margin-bottom: 30px;
@@ -31,8 +31,13 @@ section::-webkit-scrollbar {
 }
 .purpleBox::-webkit-scrollbar {
     display: none;
-  } 
-
+} 
+.purpleBox, p {
+    color: #666666;
+}
+#inside {
+    text-align: center;
+}
 .formContainer {
     margin: auto;
     margin-top: 30px;
@@ -48,7 +53,7 @@ section::-webkit-scrollbar {
 }
 .sidenav::-webkit-scrollbar {
     display: none;
-  }
+}
 .sidenav {
     /* overflow-y: hidden; */
     height: 100%; /* Full-height: remove this if you want "auto" height */
@@ -63,27 +68,27 @@ section::-webkit-scrollbar {
     display: flex;
     flex-direction: column;
     align-content: space-around;
-  }
-  .sideNavDiv {
+}
+.sideNavDiv {
     justify-content: center;
     text-align: center;  
     /* border: green solid 2px;  */
     flex: 100%;
     padding: 10% 0 10% 0;
-  }
-  .sideNavDiv, a {
+}
+.sideNavDiv, a {
          /* margin: auto;  */
     color: aqua;
     padding: auto;
     /* text-align: center;
     justify-content: center; */
-  }
-  .sidenav_div {
+}
+.sidenav_div {
     margin: auto 10px auto 10px;
     padding: 10px;
     border: purple solid 2px;
 }
-  main {
+main {
     height: 100vh; 
     width: 80%;
     position: fixed;
@@ -91,14 +96,13 @@ section::-webkit-scrollbar {
     top: 0; 
     right: 0;
     border: #111 solid 10px;
-  }
+}
 .imageContainer {
     height: 70vh; 
     width: 80%;
     margin: 10% 10% 10% 10%;
     overflow-x: hidden;
 }
-
 img {
     border: #111 solid 10px; 
     max-width:100%;
@@ -116,5 +120,11 @@ input[type=text] {
     justify-content: space-evenly;
 }
 .details_Div {
+    margin: auto;
+    width: 500px;
     color: #666666;
+}
+a {
+    color: linen;
+    text-decoration: none;
 }

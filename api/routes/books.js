@@ -8,7 +8,7 @@ const mongoose = require('mongoose')
 const db = mongoose.connection;
 db.on('error', console.log.bind(console, 'connection error'))
 db.once('open', (callback) => {
-    console.log('Connected to MongoDB #3.')
+    console.log('Connected to MongoDB #Books.')
 })
 
 router.use(bodyParser.urlencoded({ extended: false }));
@@ -60,7 +60,7 @@ router.get('/Books/:id', (req, res) => {
     console.log(id)
     // db.collection('Books').find( { } ).toArray()
     Book.findById(id)
-    .then(result => {   
+    .then(result => {  
     res.render('details/bookDetails', { Book: result }) 
     console.log(result)
     })

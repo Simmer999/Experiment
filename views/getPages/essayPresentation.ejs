@@ -1,20 +1,19 @@
 <section>
+    <%- include('../partials/navbar'); %>
     <div class='spacer'>
     </div>  
-    <h1 class='purpleBox'>presentationPage</h1> 
-    <%- include('../partials/sidenav'); %>
+    <h2 class='purpleBox'>Essays</h2> 
+ 
     <div class="purpleBox">
         <ul class="Essays">
   
-          <H2>All Essays</H2>
         <% if (Essays.length > 0) { %>
             <% Essays.forEach(essay => { %>
                 <a href='/Essays/<%= essay._id %>'>
-    
-                <p><%= essay.title %></p>    
-                <h3></h3>
+
+                <h4 id='title' ><%= essay.title %></h4>
                 </a>   
-                <p><%= essay.body %></p>
+                <p id='body'><%= essay.body %></p>
                
                 
                 <% }) %>

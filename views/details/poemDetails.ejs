@@ -1,16 +1,19 @@
 <section>
+    <%- include('../partials/navbar'); %>
+    <div class='spacer'></div> 
 
-    <div class='spacer'>
-    </div> 
-    <div class='details_Div'>
-    <div style="height: 500px;">
-    <div>
-    <h3>Poem title = <%= Poem.title %></h3>
-    </div> 
-    <div>
-        <p>Poem body : <%= Poem.body %></p>
-    </div>
-    </div>
+
+    <div class='purpleBox'>
+        <div style="height: 500px;">
+        <div>
+            <a href=""><h3><%= Poem.title %></h3></a>
+                <h4><%= Poem.author %></h4>           
+        </div>
+        <br> 
+        <div>
+            <p><%= Poem.body %></p>
+        </div>
+        </div>
     </div>
 
   
