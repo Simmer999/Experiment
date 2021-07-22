@@ -17,7 +17,7 @@ router.get('/register',(req,res)=>{
 router.get('/logout',(req,res)=>{
     req.logout();
     req.flash('success_msg','Now logged out');
-    res.redirect('/users/login'); 
+    res.redirect('/login'); 
     })
 //========================================================= GET requests
 
@@ -27,7 +27,7 @@ router.get('/logout',(req,res)=>{
 router.post('/login',(req,res,next)=>{
 passport.authenticate('local',{
     successRedirect : '/dashboard',
-    failureRedirect: '/users/login',
+    failureRedirect: '/login',
     failureFlash : true
 })(req,res,next)
 })
