@@ -1,4 +1,5 @@
 .navbar {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     overflow: hidden;
     background-color: #111;
     position: fixed;

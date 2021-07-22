@@ -1,14 +1,11 @@
 <section>
+    <%- include('../partials/navbar'); %>
     <div class='spacer'>
     </div>  
-    <h1 class='purpleBox'>New Essay Collection</h1>
+    <h1 class='purpleBox'>New Essay</h1>
     <div class="purpleBox">
         <form action="newEssays" method='POST'>
-            <div >
-                <label for="Collection Title">Collection Title</label>
-                <input type="Collection Title" name="Collection_title" placeholder="Collection Title" required />
-            </div>
-            <br>
+        
             <div>
                 <label for="Title">Title</label>
                 <input type="title" name='title' placeholder='Enter Collection Title' required/>
@@ -17,6 +14,11 @@
             <div>
                 <label for="author">author</label>
                 <input type="author" name="author" placeholder="Enter author" required/>
+            </div>
+            <br>
+                <div >
+                <label for="Collection Title">Collection Title</label>
+                <input type="Collection Title" name="Collection_title" placeholder="Collection Title" required />
             </div>
             <br>
             <div >

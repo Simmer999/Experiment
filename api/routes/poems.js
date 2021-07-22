@@ -24,7 +24,7 @@ router.get('/poems', (req, res) => {
     res.render('newPages/newPoem')
 })
 
-router.get('/newPoems', (req, res) => { 
+router.get('/newPoem', (req, res) => { 
     Poems.find().toArray()
     .then(results =>{
         res.render('newPages/newPoem', { entries : results})

@@ -25,6 +25,9 @@ router.get('/dashboard',ensureAuthenticated,(req, res) => {
         user: req.user
     });
 })
+router.get('/categories', (req, res) => {
+    res.render('newPages/categories')
+})
 router.get('/newStuff', (req, res) => {
     res.render('newStuff')
 })

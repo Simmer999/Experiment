@@ -24,10 +24,10 @@ router.get('/essays', (req, res) => {
     res.render('newPages/newEssay')
 })
 
-router.get('/newEssays', (req, res) => { 
+router.get('/newEssay', (req, res) => { 
     Essays.find().toArray()
     .then(results =>{
-        res.render('newPages/newEssays', { entries : results})
+        res.render('newPages/newEssay', { entries : results})
     })
     .catch(error => console.error(error))
 })
