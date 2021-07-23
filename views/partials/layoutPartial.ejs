@@ -1,6 +1,11 @@
 <html>
 <head>
 <title>Memory App</title>
+<script type = "text/javascript" >
+    function preventBack(){window.history.forward();}
+     setTimeout("preventBack()", 0);
+     window.onunload=function(){null};
+ </script>   
 <link rel="stylesheet" type="text/css" href="/styles.css">
 <link rel="stylesheet" type="text/css" href="/navbar.css">
 </head>

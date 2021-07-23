@@ -1,7 +1,15 @@
+<head>
+    <script type = "text/javascript" >
+        function preventBack(){window.history.forward();}
+         setTimeout("preventBack()", 0);
+         window.onunload=function(){null};
+     </script>
+</head>
 <section>
-  <%- include ('./partials/messages') %>
+ 
   <div class='spacer'>
   </div>
+   <%- include ('./partials/messages') %>
   <h3 class='purpleBox'>Login</h3>
   <form class='formContainer' action="users/login" method='POST'>
       <div>
@@ -15,6 +23,7 @@
       </div>
       <br>
       <button type='submit' class='xx'>Login</button>
+      <br>
       <br>
       <p>No account yet? <a class='links' href="/register"> Register</a></p>
       <br>
