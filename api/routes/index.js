@@ -37,6 +37,9 @@ router.get('/getStuff', (req, res) => {
 router.get('/getStuff', (req, res) => {
     res.render('getStuff')
 })
+router.get('/login',(req,res)=>{
+    res.render('login');
+})
 router.get('/logout',(req,res)=>{
     req.logout();
     req.flash('success_msg','You are now logged out');
