@@ -37,7 +37,14 @@ router.get('/getStuff', (req, res) => {
 router.get('/getStuff', (req, res) => {
     res.render('getStuff')
 })
-
+router.get('/logout',(req,res)=>{
+    req.logout();
+    req.flash('success_msg','You are now logged out');
+    res.redirect('loggedOut'); 
+    })
+router.get('/loggedOut', (req, res) => {
+    res.render('loggedOut')
+})
 
 const Users = db.collection('users')    //These are the names of the collections in the database.
 

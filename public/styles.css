@@ -89,13 +89,13 @@ section::-webkit-scrollbar {
     border: purple solid 2px;
 }
 main {
-    height: 100vh; 
+    /* height: 100vh; 
     width: 80%;
     position: fixed;
     z-index: 1;
     top: 0; 
     right: 0;
-    border: #111 solid 10px;
+    border: #111 solid 10px; */
 }
 .imageContainer {
     height: 70vh; 
