@@ -1,34 +1,28 @@
-<!-- <head>
-    <script type = "text/javascript" >
-        function preventBack(){window.history.forward();}
-         setTimeout("preventBack()", 0);
-         window.onunload=function(){null};
-     </script>
-</head> -->
-
 <main>
- 
-  <div class='spacer'>
-  </div>
-   <%- include ('./partials/messages') %>
-  <h3 class='purpleBox'>Login</h3>
-  <form class='formContainer' action="users/login" method='POST'>
-      <div>
-          <label for="email">Email</label>
-          <input type="email" name='email' placeholder='Enter Email'/>
-      </div>
-      <br>
-      <div>
-          <label for="password">Password</label>
-          <input type="password" name='password' placeholder='Enter Password'>
-      </div>
-      <br>
-      <button type='submit' class='xx'>Login</button>
-      <br>
-      <br>
-      <p>No account yet? <a class='links' href="/register"> Register</a></p>
-      <br>
-      <p >Home Page <a class='links' href="/">Home</a></p>
-  </form>
+    <div class='spacer'>
+    </div>
+    <%- include ('./partials/messages') %>
+    <h3 class='purpleBox'>Login</h3>
+    <form class='formContainer' action="users/login" method='POST'>
+        <div>
+            <label for="email">Email</label>
+            <input type="email" name='email' placeholder='Enter Email'/>
+        </div>
+        <br>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" name='password' placeholder='Enter Password'>
+        </div>
+        <br>
+        <button type='submit' class='xx'>Login</button>
+        <br>
+        <br>
+        <p>No account yet? <a class='links' href="/register"> Register</a></p>
+        <br>
+        <p >Home Page <a class='links' href="/">Home</a></p>
+    </form> 
+    <div class='home'>
+        <button class='home_button'> <a class='links' href="http://www.simondevine.org/">Home</a></button>
+    </div>
 </main>
 <%- include ('./partials/footer') %>
